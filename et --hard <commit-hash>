@@ -1,0 +1,114 @@
+[33mcommit 0ddeda57673beee0aca82ceaa7e5b2b6beedfbf2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 716f29f 087fc20
+Author: Giorgi Oniani <gigi.oniani@outlook.com>
+Date:   Mon Jul 7 03:50:37 2025 +0400
+
+    Merge branch 'main' of github.com:GigiOniani/Data-Engineering-Projects---Python
+
+[33mcommit 716f29fa7bf109e74c65ce1cf5b98e70002ae0ed[m
+Author: Giorgi Oniani <gigi.oniani@outlook.com>
+Date:   Mon Jul 7 03:48:29 2025 +0400
+
+    Upload
+
+[33mcommit 087fc207a819abc727984474470106d4949159ab[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Mon Jul 7 03:45:22 2025 +0400
+
+    Create smth
+
+[33mcommit 137b266875b384a05eca04e98e58fc735229d083[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Mon Jul 7 03:44:56 2025 +0400
+
+    Delete PostgreSQL | FastAPI | Manual WAL Implementation
+
+[33mcommit 23f56cdbf495650c7f92a5959eee154e402186d2[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Mon Jul 7 03:44:33 2025 +0400
+
+    Create PostgreSQL | FastAPI | Manual WAL Implementation
+
+[33mcommit c0830324fb3302e8682f17e73f11c661d08e7bf9[m
+Author: Giorgi Oniani <gigi.oniani@outlook.com>
+Date:   Mon Jul 7 03:34:17 2025 +0400
+
+    Initial commit of FastAPI + PostgreSQL project
+
+[33mcommit ed340db263767513d06e0f5d32615f2a6c89490e[m
+Author: Giorgi Oniani <gigi.oniani@outlook.com>
+Date:   Mon Jul 7 03:26:44 2025 +0400
+
+    Initial commit
+
+[33mcommit 576545bf43d019fb04e3541c4e2ab0f1b6a73906[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:07:02 2024 +0400
+
+    Delete Retail Market Sales | PGSQL | Redis | FASTAPI/finalproject structure.png
+
+[33mcommit 68de2e5be6e0b031635fe6b4af4a08cf1ca8deab[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:06:47 2024 +0400
+
+    Add files via upload
+
+[33mcommit 2cf88e804e123722a3acfaddfc88d5440ae353db[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:05:59 2024 +0400
+
+    Delete Retail Market Sales | PGSQL | Redis | FASTAPI/utils/s
+
+[33mcommit cdaf04d145afe71f3a8ef7ec142e2edcf1cc3538[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:05:51 2024 +0400
+
+    Delete Retail Market Sales | PGSQL | Redis | FASTAPI/data/s
+
+[33mcommit 04fcebe54b74e7c32b20f17684eae96c9f2f2801[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:05:42 2024 +0400
+
+    Delete Retail Market Sales | PGSQL | Redis | FASTAPI/logs/s
+
+[33mcommit ad5aa4fb9ad452ca8c986731bffcc76f7b42f32a[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:05:18 2024 +0400
+
+    Add files via upload
+
+[33mcommit 47edf5706aecbd082e7678a7c3a9cd5c01f658bf[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:04:43 2024 +0400
+
+    Add files via upload
+
+[33mcommit 03ab82e1440e3a53a02ad827a03d0d0221597770[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:04:13 2024 +0400
+
+    Add files via upload
+
+[33mcommit 5c72184ce3f01623cbb905b78f80f323a6437058[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:03:46 2024 +0400
+
+    Add files via upload
+
+[33mcommit b8afc0cb23151a27c888ca7a5b7a0e6484cf38e8[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:02:35 2024 +0400
+
+    Create s
+
+[33mcommit 4ca6ec68fa02b54976420018368af3a90e32638a[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:02:21 2024 +0400
+
+    Create s
+
+[33mcommit f4d149aad3e7512d1933e9f13e8239eec8cc6ee3[m
+Author: Gigi <122668839+GigiOniani@users.noreply.github.com>
+Date:   Sun Nov 17 15:02:05 2024 +0400
+
+    Create s
