@@ -1,8 +1,0 @@
-pandas
-fastapi
-uvicorn[standard]
-psycopg2-binary
-pydantic
-faker
-APScheduler>=3.10.0
-requests
