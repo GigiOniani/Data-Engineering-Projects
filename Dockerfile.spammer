@@ -1,9 +1,0 @@
-FROM python:3.11-slim
-
-WORKDIR /app
-
-COPY spam_transactions.py .
-
-RUN pip install --no-cache-dir requests faker
-
-CMD ["python", "spam_transactions.py"]
