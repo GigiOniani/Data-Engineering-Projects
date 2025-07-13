@@ -56,6 +56,26 @@ POST /vote
   "candidate": "John Doe"
 }
 
+
+
+
+
+dim_voters PGSQL Database with voter Unique Key and Demographic Information
+<img width="1425" height="401" alt="image" src="https://github.com/user-attachments/assets/fb2242e3-672f-4dc6-96ce-dfc1f2b10161" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Displays:
 Candidate-wise vote counts
 Auto-refresh every few seconds
@@ -64,8 +84,21 @@ Real-time Kafka → Spark → Redis pipeline
 🧪 Simulate Votes - spammer.py
 A dedicated spammer service sends random or targeted votes into the Kafka pipeline for demo/testing.
 
+
+
+
+
+Final Dashboard 
+
+<img width="1804" height="905" alt="image" src="https://github.com/user-attachments/assets/0e8da0c1-5b9b-422d-a1e2-e396b7c05450" />
+
+
+
+
+
+
 📌 Notes
-Redis is initialized with voter guid keys via redis_init.py.
+Redis is initialized with voter guid keys via redis_init.py. (reading from pgsql before voting starts)
 Stream processing is done using structured streaming in PySpark.
 You can persist aggregated results to PostgreSQL or JSON files for further analysis.
 
