@@ -1,5 +1,10 @@
 🗳️ Digital Elections
 A modern, real-time digital election system built with FastAPI, Apache Kafka, Redis, PySpark, and Streamlit. This project simulates a voting pipeline and provides a live dashboard for election results.
+Each user is assigned unique identifier, that must be provided to API to confirm user identity. In this case Redis Key:Value is already generated for fast read/write operations.
+FastAPI sends data to Kafka 
+PySpark streaming data and aggregating votes by each candidate
+PySpark sends aggregated data to Redis 
+Streamlit accessing Redis data and streaming data with different visuals(Bar chart, ranking, Donut Chart) with minimum latency (1-5 milliseconds)
 
 🔧 Tech Stack
 Component	Tech
@@ -49,9 +54,6 @@ POST /vote
   "guid": "abc-123-def-456",
   "candidate": "John Doe"
 }
-✔️ GUID is verified in Redis and marked as used.
-✔️ Only valid, unused keys are accepted.
-
 
 Displays:
 Candidate-wise vote counts
