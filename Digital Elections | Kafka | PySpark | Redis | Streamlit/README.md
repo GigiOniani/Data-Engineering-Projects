@@ -91,16 +91,19 @@ POST /vote
 
 
 # 📌 Notes
-Redis is initialized with voter guid keys via redis_init.py. (reading from pgsql before voting starts)
-Stream processing is done using structured streaming in PySpark.
-You can persist aggregated results to PostgreSQL or JSON files for further analysis.
+
+- **Redis** is initialized with voter `GUID` keys using the `redis_init.py` script. This script reads data from the PostgreSQL database **before voting begins** to preload valid voter identifiers.
+- **Stream processing** is implemented using **Structured Streaming** in **PySpark**, enabling real-time vote aggregation.
+- Aggregated results can be **persisted to PostgreSQL** or **exported as JSON files** for further analysis or reporting.
+
 
 # ✅ TODO (Suggestions for Future Improvement)
- Add authentication for vote submission
- FastAPI endpoint is slow, needs async functions and routing for further smooth and secure operations
- Rate-limiting or spam protection
- Persist results to PostgreSQL
- Deploy via Kubernetes and AWS EC2 for production
+
+- Add authentication for vote submission  
+- Optimize FastAPI endpoint performance with async functions and routing  
+- Implement rate-limiting or spam protection  
+- Persist aggregated results to PostgreSQL  
+- Deploy the system via Kubernetes and AWS EC2 for production
 
 
 # 📄 License
