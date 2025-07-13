@@ -1,21 +1,40 @@
-# 🗳️ Digital Elections (Enhancing Georgian Democracy)
-A modern, real-time digital election system built with FastAPI, Apache Kafka, Redis, PySpark, and Streamlit. 
-This project simulates a voting pipeline and provides a live dashboard for election results.
-Each user is assigned unique identifier, that must be provided to API to confirm user identity. In this case Redis Key:Value is already generated for fast read/write operations.
-FastAPI sends data to Kafka 
-PySpark streaming data and aggregating votes by each candidate
-PySpark sends aggregated data to Redis 
-Streamlit accessing Redis data and streaming data with different visuals(Bar chart, ranking, Donut Chart) with minimum latency (1-5 milliseconds)
+# 🗳️ Project Overview - Digital Elections (Enhancing Georgian Democracy)
 
-# 🔧 Tech Stack
-Component	Tech
-API Gateway	FastAPI
-Message Broker	Apache Kafka
-Stream Processor PySpark
-Dashboard	Streamlit
-Key Store	Redis
-Data Storage	PostgreSQL (optional / extendable)
-Containerization	Docker + Docker Compose
+A modern, real-time **Digital Election System** built using **FastAPI**, **Apache Kafka**, **Redis**, **PySpark**, and **Streamlit**.
+
+This project simulates a complete voting pipeline and provides a **live dashboard** for real-time election results.
+
+---
+
+### 🔐 How It Works
+
+- Each voter is assigned a **unique identifier (GUID)**, which must be submitted via the API to verify their identity.
+- The identifier is stored in **Redis** as a Key:Value pair for ultra-fast read/write operations.
+
+---
+
+### 🔄 Data Flow
+
+1. **FastAPI** receives the vote (along with GUID and Personal ID) and sends it to **Apache Kafka**.
+2. **PySpark** listens to the Kafka stream, processes incoming votes, and **aggregates vote counts by candidate**.
+3. Aggregated results are written to **Redis** for low-latency access.
+4. **Streamlit** reads live data from Redis and displays real-time visualizations:
+   - 📊 **Bar Chart**
+   - 🏆 **Candidate Ranking**
+   - 🍩 **Donut Chart**
+
+⏱️ The system is optimized for minimal latency (1–5 milliseconds) in data refresh and UI updates.
+
+## 🔧 Tech Stack
+
+- **API Gateway**: FastAPI  
+- **Message Broker**: Apache Kafka  
+- **Stream Processor**: PySpark  
+- **Dashboard**: Streamlit  
+- **Key Store**: Redis  
+- **Data Storage**: PostgreSQL (optional / extendable)  
+- **Containerization**: Docker + Docker Compose  
+
 
 <img width="407" height="528" alt="image" src="https://github.com/user-attachments/assets/336b2df8-2339-4f82-b89b-1d4098b6a8e4" />
 
@@ -33,7 +52,7 @@ Redis: Handles voter key status (used / unused).
 
 🤖 Spammer: Simulates multiple voters for load testing and demo.
 
-#⚙️ How to Run (with Docker)
+# ⚙️ How to Run (with Docker)
 1. Clone the Repository - git clone https://github.com/GigiOniani/digital-elections.git
 2. Start All Services
 docker-compose up --build 
@@ -48,7 +67,7 @@ docker-compose up --build
 
 
 
-#🗳️ FastAPI Voting Endpoint
+# 🗳️ FastAPI Voting Endpoint
 POST /vote
 {
   "personal_id": "12345678901",
@@ -58,7 +77,7 @@ POST /vote
 
 
 
-# 📊 dim_voters PGSQL Database with Voter Unique Key and Demographic Information
+# 📊 PGSQL Database with Georgian Voter Unique Key and Demographic Information
 <img width="1425" height="401" alt="image" src="https://github.com/user-attachments/assets/fb2242e3-672f-4dc6-96ce-dfc1f2b10161" />
 
 
