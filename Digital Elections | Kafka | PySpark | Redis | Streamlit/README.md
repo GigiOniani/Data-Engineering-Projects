@@ -1,5 +1,5 @@
 🗳️ Digital Elections
-A modern, real-time digital election system built with FastAPI, Apache Kafka, Redis, PySpark, and Streamlit. This project simulates a secure voting pipeline and provides a live dashboard for election results.
+A modern, real-time digital election system built with FastAPI, Apache Kafka, Redis, PySpark, and Streamlit. This project simulates a voting pipeline and provides a live dashboard for election results.
 
 🔧 Tech Stack
 Component	Tech
@@ -12,9 +12,6 @@ Data Storage	PostgreSQL (optional / extendable)
 Containerization	Docker + Docker Compose
 
 📁 Project Structure
-bash
-Copy
-Edit
 Digital Elections/
 │
 ├── app/                  # FastAPI microservice
@@ -46,46 +43,37 @@ Digital Elections/
 └── .venv/                # Python virtual environment (optional)
 
 
-<img width="1182" height="660" alt="image" src="https://github.com/user-attachments/assets/4fa02671-b156-4b7a-ba2e-abef17fa5103" />
 
-🚀 Features
-🧑‍💻 Voter Input: FastAPI endpoint receives votes with secure token (GUID).
 
-📤 Kafka: Streams votes into a votes topic.
+Project Solution Architecture
+<img width="6444" height="4604" alt="image" src="https://github.com/user-attachments/assets/50a43bf6-8186-4132-b519-53266357bc9f" />
 
-🔥 PySpark: Aggregates live votes and outputs to aggregated_votes.
-
-📊 Streamlit: Visual dashboard auto-refreshes with real-time results.
-
-⚙️ Redis: Handles voter key status (used / unused).
+Features:
+Voter Input: FastAPI endpoint receives votes with secure token (GUID).
+Kafka: Streams votes into a votes topic.
+PySpark: Aggregates live votes and outputs to aggregated_votes.
+Streamlit: Visual dashboard auto-refreshes with real-time results.
+Redis: Handles voter key status (used / unused).
 
 🤖 Spammer: Simulates multiple voters for load testing and demo.
 
 ⚙️ How to Run (with Docker)
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/digital-elections.git
-cd digital-elections/streamlit_app
+1. Clone the Repository - git clone https://github.com/GigiOniani/digital-elections.git
 2. Start All Services
-bash
-Copy
-Edit
-docker-compose up --build
-This will spin up:
+docker-compose up --build 
 
 3. Create kafka topic - aggregated_votes
 
-4. Run 
+4. Run db_init and redis_init scripts to initialize database and generate voter data.
+
+5. Run spammer.py to simulate elections
+
+6. open streamlit at localhost:8501
+
 
 
 🗳️ FastAPI Voting Endpoint
 POST /vote
-
-json
-Copy
-Edit
 {
   "personal_id": "12345678901",
   "guid": "abc-123-def-456",
@@ -94,31 +82,23 @@ Edit
 ✔️ GUID is verified in Redis and marked as used.
 ✔️ Only valid, unused keys are accepted.
 
-📺 Streamlit Dashboard
-Access at:
-http://localhost:8501
 
 Displays:
-
 Candidate-wise vote counts
-
 Auto-refresh every few seconds
-
 Real-time Kafka → Spark → Redis pipeline
 
-🧪 Simulate Votes
+🧪 Simulate Votes - spammer.py
 A dedicated spammer service sends random or targeted votes into the Kafka pipeline for demo/testing.
 
 📌 Notes
 Redis is initialized with voter guid keys via redis_init.py.
-
 Stream processing is done using structured streaming in PySpark.
-
 You can persist aggregated results to PostgreSQL or JSON files for further analysis.
 
-✅ TODO (Suggestions for Improvement)
+✅ TODO (Suggestions for Future Improvement)
  Add authentication for vote submission
- FastAPI endpoint is really slow, needs async functions and routing for further smooth and secure operations
+ FastAPI endpoint is slow, needs async functions and routing for further smooth and secure operations
  Rate-limiting or spam protection
  Persist results to PostgreSQL
  Deploy via Kubernetes and AWS EC2 for production
