@@ -11,42 +11,12 @@ Key Store	Redis
 Data Storage	PostgreSQL (optional / extendable)
 Containerization	Docker + Docker Compose
 
-📁 Project Structure
-Digital Elections/
-│
-├── app/                  # FastAPI microservice
-│   ├── main.py
-│   ├── Dockerfile
-│   └── requirements.txt
-│
-├── spammer/              # Vote simulator (sends spam votes)
-│   ├── spammer.py
-│   └── Dockerfile
-│
-├── spark/                # Spark Structured Streaming app
-│   ├── spark_app.py
-│   ├── Dockerfile
-│   └── requirements.txt
-│
-├── streamlit_app/        # Live dashboard
-│   ├── streamlit_main.py
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   ├── redis_init.py
-│   ├── db_initializer.py
-│   └── docker-compose.yaml
-│
-├── Elections/data/       # Static or uploaded election data
-│
-├── data/output/          # Spark state/checkpoint storage
-│
-└── .venv/                # Python virtual environment (optional)
-
-
+<img width="407" height="528" alt="image" src="https://github.com/user-attachments/assets/336b2df8-2339-4f82-b89b-1d4098b6a8e4" />
 
 
 Project Solution Architecture
-<img width="6444" height="4604" alt="image" src="https://github.com/user-attachments/assets/50a43bf6-8186-4132-b519-53266357bc9f" />
+<img width="1425" height="791" alt="image" src="https://github.com/user-attachments/assets/25c82055-e6b9-45ea-b6c0-1c9c3cb05f82" />
+
 
 Features:
 Voter Input: FastAPI endpoint receives votes with secure token (GUID).
