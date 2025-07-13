@@ -44,6 +44,10 @@ Digital Elections/
 ├── data/output/          # Spark state/checkpoint storage
 │
 └── .venv/                # Python virtual environment (optional)
+
+
+<img width="1182" height="660" alt="image" src="https://github.com/user-attachments/assets/4fa02671-b156-4b7a-ba2e-abef17fa5103" />
+
 🚀 Features
 🧑‍💻 Voter Input: FastAPI endpoint receives votes with secure token (GUID).
 
