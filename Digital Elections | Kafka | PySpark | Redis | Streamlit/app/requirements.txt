@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+confluent-kafka
+redis
+psycopg2-binary
+faker
+pydantic
+

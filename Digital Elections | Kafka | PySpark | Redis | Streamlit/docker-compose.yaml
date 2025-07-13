@@ -1,0 +1,135 @@
+version: "3.8"
+
+services:
+  fastapi_app:
+    build: ./app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - kafka
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    networks:
+      - app-network
+
+  spark_app:
+    build: ./spark
+    depends_on:
+      - kafka
+      - postgres
+    volumes:
+      - spark_data:/data
+    environment:
+      - SPARK_MODE=client
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - PG_HOST=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DB=elections
+    networks:
+      - app-network
+
+  streamlit_app:
+    build: ./streamlit_app
+    depends_on:
+      - kafka
+      - spark_app
+    ports:
+      - "8501:8501"
+    networks:
+      - app-network
+
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --save 60 1000 --appendonly yes
+    networks:
+      - app-network
+
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: elections
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  db_init:
+    build:
+      context: .
+      dockerfile: Dockerfile.db-init
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  redis_init:
+    build:
+      context: .
+      dockerfile: Dockerfile.redis-init
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    restart: "no"  # 🔒 Prevents restart loops
+
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - app-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.0
+    container_name: digitalelections-kafka-1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"   # Kafka broker listener inside Docker network
+      - "9093:9093"   # Host access port
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    networks:
+      - app-network
+
+  spammer:
+    build: ./spammer
+    depends_on:
+      - fastapi_app
+      - postgres
+    networks:
+      - app-network
+
+
+volumes:
+  pgdata:
+  redis_data:
+  kafka_data:
+  spark_data:
+
+networks:
+  app-network:
+    driver: bridge

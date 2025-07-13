@@ -1,0 +1,10 @@
+# Dockerfile.db-init
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY redis_init.py redis_init.py
+COPY requirements.txt requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "redis_init.py"]

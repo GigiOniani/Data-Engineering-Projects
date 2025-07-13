@@ -1,0 +1,6 @@
+pyspark
+confluent-kafka==2.0.2
+redis
+psycopg2-binary
+pyspark
+kafka-python

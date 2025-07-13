@@ -1,0 +1,6 @@
+streamlit>=1.18.0
+streamlit-autorefresh
+confluent-kafka
+pandas
+altair
+redis
