@@ -1,4 +1,4 @@
-# 🗳️ Digital Elections
+# 🗳️ Digital Elections (Enhancing Georgian Democracy)
 A modern, real-time digital election system built with FastAPI, Apache Kafka, Redis, PySpark, and Streamlit. 
 This project simulates a voting pipeline and provides a live dashboard for election results.
 Each user is assigned unique identifier, that must be provided to API to confirm user identity. In this case Redis Key:Value is already generated for fast read/write operations.
@@ -20,7 +20,7 @@ Containerization	Docker + Docker Compose
 <img width="407" height="528" alt="image" src="https://github.com/user-attachments/assets/336b2df8-2339-4f82-b89b-1d4098b6a8e4" />
 
 
-Project Solution Architecture
+# Project Architecture
 <img width="1425" height="791" alt="image" src="https://github.com/user-attachments/assets/25c82055-e6b9-45ea-b6c0-1c9c3cb05f82" />
 
 
@@ -48,7 +48,7 @@ docker-compose up --build
 
 
 
-🗳️ FastAPI Voting Endpoint
+#🗳️ FastAPI Voting Endpoint
 POST /vote
 {
   "personal_id": "12345678901",
@@ -58,11 +58,8 @@ POST /vote
 
 
 
-
-
 # 📊 dim_voters PGSQL Database with Voter Unique Key and Demographic Information
 <img width="1425" height="401" alt="image" src="https://github.com/user-attachments/assets/fb2242e3-672f-4dc6-96ce-dfc1f2b10161" />
-
 
 
 
@@ -70,8 +67,6 @@ POST /vote
 # Final Dashboard 
 
 <img width="1804" height="905" alt="image" src="https://github.com/user-attachments/assets/0e8da0c1-5b9b-422d-a1e2-e396b7c05450" />
-
-
 
 
 
