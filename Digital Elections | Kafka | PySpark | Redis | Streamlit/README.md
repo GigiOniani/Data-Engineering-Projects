@@ -102,7 +102,8 @@ POST /vote
 - Add authentication for vote submission  
 - Optimize FastAPI endpoint performance with async functions and routing  
 - Implement rate-limiting or spam protection  
-- Persist aggregated results to PostgreSQL  
+- Persist aggregated results to PostgreSQL
+- Redis WAL Implementation for persistence
 - Deploy the system via Kubernetes and AWS EC2 for production
 
 
