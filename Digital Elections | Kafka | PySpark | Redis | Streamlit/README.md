@@ -101,7 +101,8 @@ POST /vote
 
 - Add authentication for vote submission  
 - Optimize FastAPI endpoint performance with async functions and routing  
-- Implement rate-limiting or spam protection  
+- Implement rate-limiting or spam protection
+- Kafka Partition by topics (For Example - Regions)
 - Persist aggregated results to PostgreSQL
 - Redis WAL Implementation for persistence
 - Deploy the system via Kubernetes and AWS EC2 for production
